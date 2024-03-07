@@ -108,6 +108,16 @@ crypto key generate rsa
 ip ssh version 2
 
 
+FOR EDGE
+
+config t
+ip domain name rivanit.com
+username admin2 privilege 15 secret password
+crypto key generate rsa
+                 512->2048
+ip ssh version 2
+
+
 *************************************
 TO ALL CISCO
 
