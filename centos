@@ -49,6 +49,15 @@ dnf install python3-pip
 pip3 install paramiko
 ************************************************************************
 
+nano ansible.cfg
+
+[paramiko_connection]
+look_for_keys = False
+
+************************************************************************
+ansible-config dump --only-changed -t all
+************************************************************************
+
 nano hosts
 
 [router]
@@ -63,15 +72,7 @@ ansible_network_os=ios
 ansible_ssh_common_args="-o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa"
 
 
-************************************************************************
 
-nano ansible.cfg
-
-[paramiko_connection]
-look_for_keys = False
-
-
-ansible-config dump --only-changed -t all
 ************************************************************************
 
 r1.yml
