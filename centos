@@ -242,13 +242,13 @@ crypto key generate rsa
                  512->2048
 ip ssh version 2
 
-conf t
-crypto key zeroize rsa
-crypto key generate rsa modulus 2048
+!conf t
+!crypto key zeroize rsa
+!crypto key generate rsa modulus 2048
 
-conf t
-crypto key zeroize rsa
-crypto key generate rsa general-keys modulus 2048
+!conf t
+!crypto key zeroize rsa
+!crypto key generate rsa general-keys modulus 2048
 
 
 **********************************************************************
