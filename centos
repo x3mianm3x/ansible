@@ -262,10 +262,10 @@ ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc admin@10.12.1.4
 Create Alias on Linux - FOR COREBABA
 
 nano ~/.bashrc
-alias ssh12short='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc'
+alias ssh_short='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc'
 source ~/.bashrc
 
-ssh12short admin@10.12.1.4
+ssh_short admin@10.12.1.4
 
 **************************************************************************
 
