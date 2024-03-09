@@ -131,10 +131,6 @@ conf t
 ip routing
 ip route 0.0.0.0 0.0.0.0 10._._.1
 end
-conf t
-line vty 0 4
-transport input all
-end
 
 #ENABLE SSH CONNECTION
 config t
@@ -175,10 +171,6 @@ end
 conf t
 ip routing
 ip route 0.0.0.0 0.0.0.0 10._.100.4
-end
-conf t
-line vty 0 4
-transport input all
 end
 
 #ENABLE SSH CONNECTION
@@ -229,10 +221,7 @@ conf t
 ip routing
 ip route 10._.0.0 255.255.0.0 10._._.4
 end
-conf t
-line vty 0 4
-transport input all
-end
+
 
 #ENABLE SSH CONNECTION
 config t
@@ -282,5 +271,7 @@ route add 200.0.0.0 mask 255.255.255.0 10._.1.4
 
 REMOVE SSH 
 
-ssh-keygen -f "/root/.ssh/known_hosts" -R "10.11.1.4"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10._.1.4"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10._.100.8"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10._._.1"
 
