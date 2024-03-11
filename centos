@@ -278,7 +278,14 @@ ssh-keygen -f "/root/.ssh/known_hosts" -R "10._._.1"
 
 
 
+#######################################################################
+# FOR WINDOWS SERVER
+
+
 ALLOW SSH FOR WINDOWS SERVER
+open cmd
+
+powershell
 
 Get-WindowsCapability -Online | ? Name -like 'OpenSSH*'
 
@@ -304,3 +311,87 @@ New-NetFirewallRule -Name "SSH" `
 -LocalPort 22 `
 -RemotePort Any 
 
+
+
+
+# CENTOS
+
+pip install pywinrm
+
+
+nano hosts
+
+[win22]
+0.0.0.0
+
+[win22:vars]
+ansible_user=administrator
+ansible_password=C1sc0123
+ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_winrm_server_cert_validation=ignore
+
+
+#SAMPLE YML FILE
+
+---
+- name: Restart Windows Server
+  hosts: win22  # Replace with the appropriate host or group
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Restart the server
+      win_reboot:
+        reboot_timeout: 600  # Optional, set the reboot timeout in seconds
+#######################################################################
+
+MULTIPLE WINDOWS
+
+nano hosts
+
+[win22]
+server1 ansible_host=192.168.1.101
+server2 ansible_host=192.168.1.102
+server3 ansible_host=192.168.1.103
+# Add more servers as needed
+[win22:vars]
+ansible_user=administrator
+ansible_password=C1sc0123
+ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_winrm_server_cert_validation=ignore
+
+######################################################################
+YML FILE
+
+---
+- name: Restart Windows Server
+  hosts: 
+    - win1  # Replace with the appropriate host or group
+    - win2
+    - win3
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Restart the server
+      win_reboot:
+        reboot_timeout: 600  # Optional, set the reboot timeout in seconds
+
+
+OR
+
+
+#######################################################################
+
+---
+- name: Restart Windows Server
+  hosts: 
+    - win22  # Replace with the appropriate host or group
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Restart the server
+      win_reboot:
+        reboot_timeout: 600  # Optional, set the reboot timeout in second
