@@ -89,6 +89,16 @@ ansible_connection=network_cli
 ansible_port=22
 ansible_network_os=ios
 
+#ACCESS POINT
+[ap]
+10._.10.3
+
+[ap:vars]
+ansible_user=admin
+ansible_password=pass
+ansible_connection=network_cli
+ansible_port=22
+ansible_network_os=ios
 ***********************************************************************
 # BASIC CONFIG FO CISCO DEVICES
 
