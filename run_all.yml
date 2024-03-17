@@ -1,0 +1,21 @@
+#CUCM
+
+- name: CUCM
+  hosts: cucm
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - include_tasks: iphone.yml
+    - include_tasks: call.yml
+
+
+#EDGE
+
+- name: EDGE
+  hosts: edge
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - include_tasks: routing.yml
