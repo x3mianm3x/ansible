@@ -1,4 +1,4 @@
-#CUCM
+# CUCM
 ---
 - name: CUCM
   hosts: cucm
@@ -6,16 +6,17 @@
   connection: local
 
   tasks:
-    - include_tasks: iphone.yml
-    - include_tasks: call.yml
+    - name: Include tasks for iPhone configuration
+      include_tasks: iphone.yml
+    - name: Include tasks for call configuration
+      include_tasks: call.yml
 
-
-#EDGE
-
+# EDGE
 - name: EDGE
   hosts: edge
   gather_facts: false
   connection: local
 
   tasks:
-    - include_tasks: routing.yml
+    - name: Include tasks for routing configuration
+      include_tasks: routing.yml
