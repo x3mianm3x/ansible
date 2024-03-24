@@ -1,10 +1,10 @@
 ---
-- name: Configure ANALOG, IP PHONES, VIDEO CALL
-  hosts: cucm  # Replace with the appropriate host or group
-  gather_facts: no  # Disable fact gathering for network devices
-  become: yes  # Use privilege escalation to execute commands as a privileged user (if needed)
+#- name: Configure ANALOG, IP PHONES, VIDEO CALL
+#  hosts: cucm  # Replace with the appropriate host or group
+#  gather_facts: no  # Disable fact gathering for network devices
+#  become: yes  # Use privilege escalation to execute commands as a privileged user (if needed)
 
-  tasks:
+#  tasks:
     - name: ANALOG PHONES
       ios_command:
         commands:
