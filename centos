@@ -14,7 +14,7 @@ dnf install python3-netaddr -y
 
 ansible-galaxy collection install cisco.ios
 *******************************************************************
-@CENTOS
+@CENTOS - DON'T FORGET TO DO THIS
 
 chmod -R 777 /etc/ansible/
 *******************************************************************
