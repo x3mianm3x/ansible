@@ -13,7 +13,10 @@ dnf install nano -y
 dnf install python3-netaddr -y
 
 ansible-galaxy collection install cisco.ios
+*******************************************************************
+@CENTOS
 
+chmod -R 777 /etc/ansible/
 *******************************************************************
 
 nano /etc/ssh/ssh_config
@@ -253,6 +256,7 @@ ip ssh version 2
 *********************************************************************
 
 @@ACCESS POINT
+
 config t
 ip domain name rivanit.com
 username admin2 privilege 15 secret password
