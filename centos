@@ -250,6 +250,16 @@ ip ssh version 2
 !crypto key generate rsa general-keys modulus 2048
 
 
+*********************************************************************
+
+@@ACCESS POINT
+config t
+ip domain name rivanit.com
+username admin2 privilege 15 secret password
+crypto key generate rsa
+                 512->2048
+ip ssh version 2
+
 **********************************************************************
 TRY THE SSH CONNECTION
 
