@@ -1,8 +1,8 @@
 ---
-- name: Configure ACCESS POINT
-  hosts: ap
-  gather_facts: no
-  become: yes
+#- name: Configure ACCESS POINT
+#  hosts: ap
+#  gather_facts: no
+#  become: yes
 
   tasks:
     - name: Configure CISCO AP
