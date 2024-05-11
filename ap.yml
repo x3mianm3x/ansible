@@ -4,7 +4,7 @@
 #  gather_facts: no
 #  become: yes
 
-  tasks:
+#  tasks:
     - name: Configure CISCO AP
       ios_config:
         lines:
