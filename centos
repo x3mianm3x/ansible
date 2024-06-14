@@ -148,7 +148,7 @@ end
 #ENABLE SSH CONNECTION
 config t
 ip domain-name rivanit.com
-username admin privilege 15 secret password
+username admin privilege 15 secret pass
 crypto key generate rsa
                  512->2048
 ip ssh version 2
@@ -189,7 +189,7 @@ end
 #ENABLE SSH CONNECTION
 config t
 ip domain-name rivanit.com
-username admin privilege 15 secret password
+username admin privilege 15 secret pass
 crypto key generate rsa
                  512->2048
 ip ssh version 2
@@ -239,7 +239,7 @@ end
 #ENABLE SSH CONNECTION
 config t
 ip domain name rivanit.com
-username admin privilege 15 secret password
+username admin privilege 15 secret pass
 crypto key generate rsa
                  512->2048
 ip ssh version 2
@@ -259,7 +259,7 @@ ip ssh version 2
 
 config t
 ip domain name rivanit.com
-username admin privilege 15 secret password
+username admin privilege 15 secret pass
 crypto key generate rsa
                  512->2048
 ip ssh version 2
