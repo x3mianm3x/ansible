@@ -8,14 +8,16 @@ ssh administrator@0.0.0.0
 SOLO 
 #nano hosts
 
+[win22]
+0.0.0.0
 
-
-
-
-
-
-
-
+[win22:vars]
+ansible_user=administrator
+ansible_password=C1sc0123
+ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_winrm_server_cert_validation=ignore
 
 *********************************************************
 MULTIPLE SERVER
