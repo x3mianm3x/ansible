@@ -419,3 +419,9 @@ OR
     - name: Restart the server
       win_reboot:
         reboot_timeout: 600  # Optional, set the reboot timeout in second
+
+#######################################################################
+G-DRIVE LINK FOR SECURITY
+https://drive.google.com/drive/folders/1-b9a0WzKXwc_-k970MOvpI26nlr0tk9b
+
+
