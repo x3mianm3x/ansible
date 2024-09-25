@@ -77,5 +77,43 @@ ansible_winrm_server_cert_validation=ignore
         reboot_timeout: 600
       when: dns_uninstall.changed
 
+*************************************************************
+---
+- name: Add DNS Zone and Resource Records
+  hosts: win22  # Replace with the appropriate host or group
+  gather_facts: yes
+  tasks:
+    - name: Add Primary DNS Zone
+      win_shell: |
+        Add-DnsServerPrimaryZone -Name "ngcp12.com" -ZoneFile "ngcp12.com.dns"
+
+    - name: Add NS Record
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -A -Name "ns" -IPv4Address "192.168.108.130"
+
+    - name: Add A Record for Root Domain
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -A -Name "." -IPv4Address "192.168.108.130"
+
+    - name: Add CNAME Record for www
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -Cname -Name "www" -HostNameAlias "ns.ngcp12.com"
+
+    - name: Add CNAME Record for pop
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -Cname -Name "pop" -HostNameAlias "ns.ngcp12.com"
+
+    - name: Add CNAME Record for imap
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -Cname -Name "imap" -HostNameAlias "ns.ngcp12.com"
+
+    - name: Add CNAME Record for smtp
+      win_shell: |
+        Add-DnsServerResourceRecord -ZoneName "ngcp12.com" -Cname -Name "smtp" -HostNameAlias "ns.ngcp12.com"
+
+    - name: Add MX Record
+      win_shell: |
+        Add-DnsServerResourceRecordMX -Preference 10 -Name "." -MailExchange "ns.ngcp12.com" -ZoneName "ngcp12.com"
+
 
 
