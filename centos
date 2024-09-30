@@ -421,6 +421,25 @@ OR
         reboot_timeout: 600  # Optional, set the reboot timeout in second
 
 #######################################################################
+FOR CSR 1000v
+---
+- name: LOOPBACK
+  hosts: router1
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Create LOOPBACK
+      ios_command:
+        commands:
+          - configure terminal
+          - int lo 1
+          - ip add 1.1.1.1 255.255.255.0
+          - no shut
+      vars:
+        ansible_network_os: ios
+
+#######################################################################
 G-DRIVE LINK FOR SECURITY
 https://drive.google.com/drive/folders/1-b9a0WzKXwc_-k970MOvpI26nlr0tk9b
 
