@@ -28,12 +28,12 @@ git config --global user.email "christianroque0829@gmail.com"
 git init
 
 # Add the remote origin
-git remote add origin git@github.com:username/repository.git
+git remote add origin git@github.com:x3mianm3x/ansible-backups.git
 
 #git remote add origin git@github.com:rivan16/ansible-backups.git
 
 # Generate SSH key (if you haven't already)
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "christianroque0829@gmail.com"
 
 # Start the SSH agent
 eval "$(ssh-agent -s)"
