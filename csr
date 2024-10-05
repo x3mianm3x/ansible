@@ -144,3 +144,39 @@ ssh -oKexAlgorithms=+diffie-hellman-group14-sha1 admin@192.168.108.135
       when: inventory_hostname == 'router2'
       vars:
         ansible_network_os: ios
+
+**********************************************************************
+
+---
+- name: LOOPBACK for router1
+  hosts: router1
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Create LOOPBACK
+      ios_command:
+        commands:
+          - configure terminal
+          - int lo 1
+          - ip add 1.1.1.1 255.255.255.0
+          - no shut
+      vars:
+        ansible_network_os: ios
+
+- name: LOOPBACK for router2
+  hosts: router2
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Create LOOPBACK
+      ios_command:
+        commands:
+          - configure terminal
+          - int lo 1
+          - ip add 2.2.2.2 255.255.255.0
+          - no shut
+      vars:
+        ansible_network_os: ios
+
